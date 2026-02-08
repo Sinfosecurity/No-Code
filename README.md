@@ -6,8 +6,11 @@
 
 - **Landing page** (`index.html`) — Hero, what you’ll get, facilitator, register CTA
 - **Welcome** (`welcome.html`) — Short intro and link to directory
-- **Directory** (`directory.html`) — Links to all slides, lab guide, certificate, resources, flyer
-- **Materials** — `slides/`, `lab-guides/`, `certificates/`, `resources/`, `assets/`
+- **Access** (`access.html`) — Password gate; participants enter the code to reach the directory
+- **Directory** (`directory.html`) — Links to all slides, lab guide, certificate, resources, flyer (protected)
+- **Materials** — `slides/`, `lab-guides/`, `certificates/`, `resources/`, `assets/` (all protected)
+
+**Access code:** Default is `Build2026`. Change it in `access.html` (search for `EXPECTED`) and share the code only with participants.
 
 ## Run locally
 

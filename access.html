@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access materials | Build Without Coding</title>
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .access-wrap {
+      min-height: calc(100vh - 160px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+    .access-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    .access-card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .access-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+    .access-card input {
+      width: 100%;
+      padding: 16px 20px;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .access-card input::placeholder { color: rgba(255,255,255,0.4); }
+    .access-card input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .access-card .error {
+      color: #F87171;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .access-card .error.show { display: block; }
+    .access-card button {
+      width: 100%;
+      padding: 16px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .access-card button:hover { opacity: 0.95; }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="logo-wrap">
+      <img src="assets/logo.png" alt="">
+      <span>Build Without Coding</span>
+    </a>
+    <div class="links">
+      <a href="welcome.html">Welcome</a>
+      <a href="access.html">Directory</a>
+      <a href="https://tinyurl.com/LasuAI" class="cta" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+</nav>
+
+<main class="main">
+  <div class="access-wrap">
+    <div class="access-card">
+      <h1>Enter access code</h1>
+      <p>Materials are for workshop participants. Enter the code shared by the facilitator.</p>
+      <p class="error" id="error">Incorrect code. Please try again.</p>
+      <form id="accessForm" action="directory.html" method="get">
+        <input type="password" id="password" name="p" placeholder="Access code" autocomplete="off" autofocus>
+        <button type="submit">Continue to directory</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>LASU 2001 Engineers Business Hub · <a href="index.html">Home</a> · <a href="https://tinyurl.com/LasuAI" target="_blank" rel="noopener">Register</a></p>
+</footer>
+
+<script>
+(function() {
+  // Change this password to your preferred access code (e.g. shared with participants)
+  var EXPECTED = 'Build2026';
+
+  var form = document.getElementById('accessForm');
+  var input = document.getElementById('password');
+  var err = document.getElementById('error');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    err.classList.remove('show');
+    var value = (input.value || '').trim();
+    if (value === EXPECTED) {
+      try { sessionStorage.setItem('bwc_access', '1'); } catch (_) {}
+      window.location.href = 'directory.html';
+    } else {
+      err.classList.add('show');
+      input.focus();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
