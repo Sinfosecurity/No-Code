@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome | Build Without Coding</title>
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .welcome-hero {
+      text-align: center;
+      padding: 60px 24px 48px;
+    }
+    .welcome-hero .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid rgba(212,175,55,0.5);
+      margin-bottom: 20px;
+    }
+    .welcome-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .welcome-hero h1 span { color: var(--accent-light); }
+    .welcome-hero .lead {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.65;
+    }
+    .welcome-content {
+      padding: 24px 24px 64px;
+    }
+    .welcome-content .wrap-narrow {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+    }
+    .welcome-content h2 {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .welcome-content p {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+    .welcome-content ul {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .welcome-content li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.85);
+    }
+    .welcome-content li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-light);
+      font-weight: 700;
+    }
+    .welcome-cta {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .welcome-cta p { margin-bottom: 16px; color: rgba(255,255,255,0.8); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="logo-wrap">
+      <img src="assets/logo.png" alt="">
+      <span>Build Without Coding</span>
+    </a>
+    <div class="links">
+      <a href="welcome.html">Welcome</a>
+      <a href="directory.html">Directory</a>
+      <a href="https://tinyurl.com/LasuAI" class="cta" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+</nav>
+
+<main class="main">
+  <section class="welcome-hero">
+    <img src="assets/logo.png" alt="LASU 2001 Engineers" class="logo">
+    <h1>Welcome to <span>Build Without Coding</span></h1>
+    <p class="lead">You’re in the right place. This hub has everything you need for the workshop — slides, lab guide, certificate, and more.</p>
+  </section>
+
+  <section class="welcome-content">
+    <div class="wrap-narrow">
+      <h2>What to expect</h2>
+      <p>We’ll cover no-code foundations in the morning and AI-powered building in the afternoon. By the end, you’ll have built a real app and know how to use modern tools to create more.</p>
+      <ul>
+        <li>Slides for the full-day session (and separate Day 1 / Day 2 decks)</li>
+        <li>Step-by-step lab guide to build your app</li>
+        <li>Participant worksheet and pre-workshop setup</li>
+        <li>Certificate of completion and prompt cheat sheet</li>
+        <li>Workshop flyer to share</li>
+      </ul>
+      <div class="welcome-cta">
+        <p>Go to the directory to open any material.</p>
+        <a href="directory.html" class="btn btn-primary">Open directory</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>LASU 2001 Engineers Business Hub · <a href="directory.html">Directory</a> · <a href="https://tinyurl.com/LasuAI" target="_blank" rel="noopener">Register</a></p>
+</footer>
+
+</body>
+</html>

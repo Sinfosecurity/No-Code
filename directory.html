@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory | Build Without Coding</title>
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .dir-hero {
+      text-align: center;
+      padding: 48px 24px 40px;
+    }
+    .dir-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .dir-hero h1 span { color: var(--accent-light); }
+    .dir-hero p { color: rgba(255,255,255,0.7); font-size: 1rem; }
+    .dir-content { padding: 24px 24px 64px; }
+    .dir-section {
+      margin-bottom: 40px;
+    }
+    .dir-section h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .dir-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .dir-card {
+      display: block;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .dir-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(212,175,55,0.3);
+      transform: translateY(-2px);
+    }
+    .dir-card .icon { font-size: 1.75rem; margin-bottom: 12px; }
+    .dir-card h3 {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .dir-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+    .dir-card .open {
+      font-size: 0.85rem;
+      color: var(--accent-light);
+      font-weight: 600;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="logo-wrap">
+      <img src="assets/logo.png" alt="">
+      <span>Build Without Coding</span>
+    </a>
+    <div class="links">
+      <a href="welcome.html">Welcome</a>
+      <a href="directory.html">Directory</a>
+      <a href="https://tinyurl.com/LasuAI" class="cta" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+</nav>
+
+<main class="main">
+  <section class="dir-hero">
+    <h1>Materials <span>directory</span></h1>
+    <p>Open any resource below in a new tab.</p>
+  </section>
+
+  <section class="dir-content">
+    <div class="wrap">
+      <div class="dir-section">
+        <h2>Workshop slides</h2>
+        <div class="dir-grid">
+          <a href="slides/full-day-slides.html" class="dir-card" target="_blank" rel="noopener">
+            <div class="icon">📽️</div>
+            <h3>Full-day slides</h3>
+            <p>Complete deck: morning (AppSheet) + afternoon (AI tools).</p>
+            <span class="open">Open →</span>
+          </a>
+          <a href="slides/day1-slides.html" class="dir-card" target="_blank" rel="noopener">
+            <div class="icon">📅</div>
+            <h3>Day 1 slides</h3>
+            <p>No-code foundations and AppSheet session.</p>
+            <span class="open">Open →</span>
+          </a>
+          <a href="slides/day2-slides.html" class="dir-card" target="_blank" rel="noopener">
+            <div class="icon">📅</div>
+            <h3>Day 2 / Advanced slides</h3>
+            <p>Vibe coding, ChatGPT, Codex, Google Antigravity.</p>
+            <span class="open">Open →</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="dir-section">
+        <h2>Hands-on</h2>
+        <div class="dir-grid">
+          <a href="lab-guides/day1-lab-guide.html" class="dir-card" target="_blank" rel="noopener">
+            <div class="icon">🛠️</div>
+            <h3>Lab guide</h3>
+            <p>Step-by-step build: from idea to app in 2 hours.</p>
+            <span class="open">Open →</span>
+          </a>
+          <a href="resources/participant-worksheet.html" class="dir-card" target="_blank" rel="noopener">
+            <div class="icon">📝</div>
+            <h3>Participant worksheet</h3>
+            <p>App idea, features, data fields, 7-day plan.</p>
+            <span class="open">Open →</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="dir-section">
+        <h2>Certificates & resources</h2>
+        <div class="dir-grid">
+          <a href="certificates/certificate.html" class="dir-card" target="_blank" rel="noopener">
+            <div class="icon">🏆</div>
+            <h3>Certificate of completion</h3>
+            <p>Print or save as PDF. Enter participant name before printing.</p>
+            <span class="open">Open →</span>
+          </a>
+          <a href="resources/pre-workshop-setup-guide.html" class="dir-card" target="_blank" rel="noopener">
+            <div class="icon">📋</div>
+            <h3>Pre-workshop setup</h3>
+            <p>Send to participants before the training.</p>
+            <span class="open">Open →</span>
+          </a>
+          <a href="resources/prompt-cheat-sheet.html" class="dir-card" target="_blank" rel="noopener">
+            <div class="icon">💬</div>
+            <h3>Prompt cheat sheet</h3>
+            <p>AI prompts for apps, websites, and troubleshooting.</p>
+            <span class="open">Open →</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="dir-section">
+        <h2>Promo</h2>
+        <div class="dir-grid">
+          <a href="assets/workshop-flyer.html" class="dir-card" target="_blank" rel="noopener">
+            <div class="icon">📄</div>
+            <h3>Workshop flyer</h3>
+            <p>Shareable flyer with QR code and registration link.</p>
+            <span class="open">Open →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>LASU 2001 Engineers Business Hub · <a href="index.html">Home</a> · <a href="https://tinyurl.com/LasuAI" target="_blank" rel="noopener">Register</a></p>
+</footer>
+
+</body>
+</html>
