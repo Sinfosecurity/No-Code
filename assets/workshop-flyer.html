@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Without Coding | LASU 2001 Engineers Workshop</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0F0D1E;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79,70,229,0.25), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(212,175,55,0.08), transparent),
+      linear-gradient(180deg, #1E1B4B 0%, #0F0D1E 100%);
+    min-height: 100vh;
+    padding: 48px 20px;
+    color: #1E1B4B;
+  }
+
+  .flyer {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(212,175,55,0.2),
+      0 32px 64px -12px rgba(0,0,0,0.35),
+      0 0 120px -24px rgba(79,70,229,0.15);
+  }
+
+  /* Decorative top ribbon */
+  .ribbon {
+    height: 6px;
+    background: linear-gradient(90deg, #D4AF37 0%, #F5D472 25%, #D4AF37 50%, #F5D472 75%, #D4AF37 100%);
+    background-size: 200% 100%;
+  }
+
+  .flyer-header {
+    background: linear-gradient(165deg, #1E1B4B 0%, #312E81 45%, #25215A 100%);
+    padding: 40px 44px 36px;
+    text-align: center;
+    position: relative;
+  }
+  .flyer-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    border-radius: 2px;
+    opacity: 0.8;
+  }
+  .flyer-header img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    margin-bottom: 18px;
+    border: 4px solid rgba(212,175,55,0.5);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  }
+  .flyer-header .tag {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.68em;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #FCD34D;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.95;
+  }
+  .flyer-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4em;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .flyer-header h1 span {
+    color: #FCD34D;
+    text-shadow: 0 0 24px rgba(252,211,77,0.2);
+  }
+  .flyer-header .sub {
+    font-size: 1em;
+    color: rgba(255,255,255,0.9);
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  .flyer-body {
+    padding: 36px 44px 44px;
+    position: relative;
+  }
+  .flyer-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 44px;
+    right: 44px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #E5E7EB, transparent);
+  }
+  .greeting {
+    font-size: 1.08em;
+    color: #374151;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+  .intro {
+    font-size: 0.97em;
+    color: #6B7280;
+    margin-bottom: 26px;
+    line-height: 1.6;
+  }
+  .points {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+  .points li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 16px;
+    font-size: 0.96em;
+    line-height: 1.58;
+    color: #374151;
+  }
+  .points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #4F46E5, #6366F1);
+    box-shadow: 0 2px 8px rgba(79,70,229,0.3);
+  }
+  .points li strong {
+    color: #1E1B4B;
+  }
+  .points .highlight {
+    color: #1E1B4B;
+    font-weight: 600;
+  }
+  .courtesy {
+    font-size: 0.92em;
+    color: #6B7280;
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+  .cta-box {
+    background: linear-gradient(145deg, #F8FAFC 0%, #EEF2FF 50%, #E0E7FF 100%);
+    border: 2px solid #C7D2FE;
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4F46E5, #818CF8, #4F46E5);
+  }
+  .cta-box .register-label {
+    font-size: 0.75em;
+    color: #6366F1;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .cta-box > p {
+    font-size: 1.02em;
+    color: #3730A3;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .cta-box .parent-note {
+    font-size: 0.96em;
+    color: #4F46E5;
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .qr-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .qr-wrap img {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    padding: 10px;
+    background: #fff;
+    border: 2px solid #C7D2FE;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.15);
+  }
+  .qr-wrap span {
+    font-size: 0.75em;
+    color: #6366F1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .cta-link {
+    display: inline-block;
+    background: linear-gradient(145deg, #4F46E5, #6366F1);
+    color: #FFFFFF !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.12em;
+    letter-spacing: 0.5px;
+    padding: 14px 36px;
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(79,70,229,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(79,70,229,0.5);
+  }
+  .flyer-footer {
+    text-align: center;
+    padding: 20px 24px;
+    border-top: 1px solid #E5E7EB;
+    font-size: 0.86em;
+    color: #9CA3AF;
+    background: #FAFAFA;
+  }
+  .flyer-footer a { color: #4F46E5; text-decoration: none; font-weight: 500; }
+
+  @media print {
+    body { background: white; padding: 16px; }
+    .flyer { box-shadow: none; }
+  }
+  @media (max-width: 600px) {
+    .flyer-header, .flyer-body { padding: 28px 24px; }
+    .flyer-header h1 { font-size: 1.9em; }
+    .cta-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="flyer">
+  <div class="ribbon"></div>
+  <div class="flyer-header">
+    <img src="logo.png" alt="LASU 2001 Engineers">
+    <div class="tag">LASU 2001 Engineers Business Hub</div>
+    <h1>Build Without <span>Coding</span></h1>
+    <p class="sub">From Idea to App — FREE Workshop</p>
+  </div>
+
+  <div class="flyer-body">
+    <p class="greeting">Good evening / afternoon / morning, Fam.</p>
+    <p class="intro">Please note the following:</p>
+
+    <ul class="points">
+      <li><strong>1.</strong> 5 days prior to the training, the needed tools will be sent to each participant via email for downloading.</li>
+      <li><strong>2.</strong> Each participant should be fully equipped with a working computer and internet.</li>
+      <li><strong>3.</strong> The sessions will be shared into two days — the first being held on <span class="highlight">28 February</span>; the other date will be communicated later to participants.</li>
+      <li><strong>4.</strong> The overall best participant who is able to follow up and create either a website or app with the knowledge shared will be added <strong>free of charge</strong> to an existing mentored group of app builders led by professionals, and would be mentored for a period of time.</li>
+      <li><strong>5.</strong> A cash gift would be given to the emerging best student to aid in the purchase of tools or a laptop.</li>
+    </ul>
+
+    <p class="courtesy">Courtesy: The Facilitator</p>
+
+    <div class="cta-box">
+      <span class="register-label">Don’t miss this opportunity</span>
+      <p>This is an opportunity that shouldn’t be missed.</p>
+      <p class="parent-note">Even as a parent you aren’t left out — you can also learn and create another stream of income from this <strong>FREE</strong> training.</p>
+      <span class="register-label">Hurry now to register</span>
+      <div class="cta-row">
+        <div class="qr-wrap">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Ftinyurl.com%2FLasuAI&format=png" alt="Scan to register" width="120" height="120">
+          <span>Scan to register</span>
+        </div>
+        <div class="cta-buttons">
+          <a href="https://tinyurl.com/LasuAI" class="cta-link" target="_blank" rel="noopener">tinyurl.com/LasuAI</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flyer-footer">
+    LASU 2001 Engineers Business Hub · <a href="https://tinyurl.com/LasuAI">tinyurl.com/LasuAI</a>
+  </div>
+</div>
+
+</body>
+</html>
