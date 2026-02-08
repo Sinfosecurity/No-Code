@@ -110,18 +110,27 @@
 
 <script>
 (function() {
-  // Change this password to your preferred access code (e.g. shared with participants)
-  var EXPECTED = 'Build2026';
+  // SHA-256 hash of the access code — password is never stored in plain text
+  var HASH = 'd6e68f19c76a10db711da48158aabc35d4406b4e35d99686ecc26e0c64be471b';
+
+  async function sha256(str) {
+    var buf = new TextEncoder().encode(str);
+    var digest = await crypto.subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(digest)).map(function(b) {
+      return b.toString(16).padStart(2, '0');
+    }).join('');
+  }
 
   var form = document.getElementById('accessForm');
   var input = document.getElementById('password');
   var err = document.getElementById('error');
 
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
     err.classList.remove('show');
     var value = (input.value || '').trim();
-    if (value === EXPECTED) {
+    var hashed = await sha256(value);
+    if (hashed === HASH) {
       try { localStorage.setItem('bwc_access', '1'); } catch (_) {}
       window.location.href = 'directory.html';
     } else {
